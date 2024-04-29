@@ -16,7 +16,7 @@ const Login = () => {
 
             const data = await response.json();
 
-            // Procura o usuário com o email fornecido
+            
             const users = Object.values(data);
             const user = users.find((user) => user.Email === email);
 
@@ -25,7 +25,6 @@ const Login = () => {
                 return;
             }
 
-            // Verifica se a senha fornecida corresponde à senha do usuário
             if (user.senha !== password) {
                 alert("Invalid password");
                 return;
