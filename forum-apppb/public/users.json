@@ -1,0 +1,29 @@
+{
+    "users" : {
+        "users1": {
+            "Email": "test@gmail.com",
+            "Usuario": "teste",
+            "senha": "teste"
+        },
+        "users2":  {
+            "Email": "test@gmail.com",
+            "Usuario": "teste",
+            "senha": "teste"
+        },
+        "users3": {
+            "Email": "test@gmail.com",
+            "Usuario": "teste",
+            "senha": "teste"
+        },
+        "users4": {
+            "Email": "test@gmail.com",
+            "Usuario": "teste",
+            "senha": "teste"
+        },
+        "users5": {
+            "Email": "test@gmail.com",
+            "Usuario": "teste",
+            "senha": "teste"
+        }
+    }
+}
