@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Replies from "./components/Replies";
 import CreateThread from "./components/CreateThread";
 
+
 const App = () => {
     return (
         <div>
@@ -13,7 +14,7 @@ const App = () => {
                     <Route path="/" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/dashboard" element={<Home />} />
-                    <Route path="/create" element={<CreateThread />} /> 
+                    <Route path="/create-thread" element={<CreateThread />} /> 
                     <Route path="/:id/replies" element={<Replies />} />
                 </Routes>
             </BrowserRouter>

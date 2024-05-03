@@ -16,7 +16,6 @@ const Login = () => {
 
             const data = await response.json();
 
-            
             const users = Object.values(data);
             const user = users.find((user) => user.Email === email);
 

@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const CreateThread = () => {
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
-    const history = useHistory();
 
     const handleCreateThread = async () => {
         try {
@@ -16,7 +15,7 @@ const CreateThread = () => {
                 },
                 body: JSON.stringify({
                     Titulo: titulo,
-                    Descrição: descricao,
+                    Descricao: descricao,
                 }),
             });
 
@@ -25,7 +24,6 @@ const CreateThread = () => {
             }
 
             alert("Thread created successfully!");
-            history.push("/");
         } catch (error) {
             console.error("Error creating thread:", error);
         }
@@ -35,10 +33,10 @@ const CreateThread = () => {
         <>
             <Nav />
             <main className="createThread">
-                <h2 className="createThreadTitle">Crie um Topico</h2>
+                <h2 className="createThreadTitle">Crie um Tópico</h2>
                 <form className="createThreadForm" onSubmit={(e) => e.preventDefault()}>
                     <div className="createThread__container">
-                        <label htmlFor="titulo">Titulo</label>
+                        <label htmlFor="titulo">Título</label>
                         <input
                             type="text"
                             name="titulo"
@@ -49,7 +47,7 @@ const CreateThread = () => {
                         />
                     </div>
                     <div className="createThread__container">
-                        <label htmlFor="descricao">Description</label>
+                        <label htmlFor="descricao">Descrição</label>
                         <textarea
                             name="descricao"
                             id="descricao"
@@ -60,7 +58,7 @@ const CreateThread = () => {
                         ></textarea>
                     </div>
                     <div className="createThread__buttons">
-                        <button className="createThreadBtn" onClick={handleCreateThread} type="submit">CREATE THREAD</button>
+                        <Link to={`/dashboard?titulo=${titulo}&descricao=${descricao}`} className="createThreadBtn" onClick={handleCreateThread}>CREATE THREAD</Link>
                         <Link to="/" className="cancelBtn">Cancel</Link>
                     </div>
                 </form>

@@ -7,31 +7,29 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const signUp = () => {
-        fetch("https://projeto-bloco-4f62c-default-rtdb.firebaseio.com/users.json", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                Email: email,
-                Usuario: username,
-                senha: password,
-            }),
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Failed to create user");
-                }
-                return response.json();
-            })
-            .then(() => {
-                alert("Account created successfully!");
-                navigate("/");
-            })
-            .catch((error) => {
-                console.error("Error creating user: ", error);
+    const signUp = async () => {
+        try {
+            const response = await fetch("https://projeto-bloco-4f62c-default-rtdb.firebaseio.com/users.json", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    Email: email,
+                    Usuario: username,
+                    senha: password,
+                }),
             });
+
+            if (!response.ok) {
+                throw new Error("Failed to create user");
+            }
+
+            alert("Account created successfully!");
+            navigate("/");
+        } catch (error) {
+            console.error("Error creating user: ", error);
+        }
     };
 
     const handleSubmit = (e) => {

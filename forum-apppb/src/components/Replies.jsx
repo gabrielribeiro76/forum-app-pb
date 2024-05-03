@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Replies = () => {
     const [commentList, setCommentList] = useState([]);
     const [comment, setComment] = useState("");
     const { postId } = useParams();
-    const navigate = useNavigate();
 
     const addComment = async () => {
         try {
